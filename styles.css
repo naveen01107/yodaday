@@ -110,6 +110,21 @@ body::before {
   color: var(--secondary);
 }
 
+/* Update Banner */
+.update-banner {
+  background: linear-gradient(135deg, var(--secondary) 0%, #c15340 100%);
+  color: white;
+  padding: 0.75rem;
+  text-align: center;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.update-banner p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
 /* Gallery */
 .gallery {
   display: grid;
