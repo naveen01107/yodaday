@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>International Yoga Day 2026 — Participate & Get Certificate</title>
   <link rel="stylesheet" href="styles.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -290,27 +291,131 @@
   </footer>
 
   <script>
-    function handleFormSubmit(event) {
+    // Initialize EmailJS (configure these with your EmailJS credentials)
+    // Sign up at https://www.emailjs.com and replace with your details
+    emailjs.init({
+      publicKey: "YOUR_PUBLIC_KEY_HERE" // Replace with your EmailJS public key
+    });
+
+    const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID_HERE"; // Replace with your service ID
+    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID_HERE"; // Replace with your template ID
+
+    // Generate unique registration ID
+    function generateRegistrationId() {
+      const timestamp = Date.now().toString().slice(-6);
+      const random = Math.floor(Math.random() * 900) + 100;
+      return `IYD-${new Date().getFullYear()}-${timestamp}${random}`;
+    }
+
+    async function handleFormSubmit(event) {
       event.preventDefault();
+      
       const name = document.getElementById('fullname').value;
       const email = document.getElementById('email').value;
-      const certNumber = 'YD' + new Date().getTime();
+      const mobile = document.getElementById('mobile').value;
+      const address = document.getElementById('address').value;
+      const center = document.getElementById('center').value;
+      const experience = document.getElementById('experience').value;
       
-      // Store in localStorage (simple persistence)
-      const registration = {
-        name, email,
-        certNumber,
-        date: new Date().toISOString()
-      };
-      localStorage.setItem('yogaReg_' + certNumber, JSON.stringify(registration));
+      const regId = generateRegistrationId();
       
-      // Show success message
-      document.getElementById('yogaForm').style.display = 'none';
-      document.getElementById('certNumber').textContent = certNumber;
-      document.getElementById('successMessage').style.display = 'block';
+      // Show loading state
+      const submitBtn = document.querySelector('button[type="submit"]');
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Processing...';
       
-      // Scroll to success message
-      document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+      try {
+        // Send email to participant
+        const participantResponse = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: email,
+          to_name: name,
+          reg_id: regId,
+          participant_name: name,
+          participant_email: email,
+          participant_mobile: mobile,
+          participant_address: address,
+          participant_center: center || 'Not specified',
+          participant_experience: experience,
+          email_type: 'participant'
+        });
+
+        // Send email to admin
+        const adminResponse = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          to_email: 'ifwsbonglooryogaday@gmail.com',
+          to_name: 'Yoga Day Admin',
+          reg_id: regId,
+          participant_name: name,
+          participant_email: email,
+          participant_mobile: mobile,
+          participant_address: address,
+          participant_center: center || 'Not specified',
+          participant_experience: experience,
+          email_type: 'admin',
+          submission_date: new Date().toLocaleString()
+        });
+
+        // Store in localStorage
+        const registration = {
+          name, email, mobile, address, center, experience,
+          regId,
+          date: new Date().toISOString()
+        };
+        localStorage.setItem('yogaReg_' + regId, JSON.stringify(registration));
+        
+        // Show success message
+        document.getElementById('yogaForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('successMessage').innerHTML = `
+          <div style="text-align: center; padding: 2rem;">
+            <h3 style="color: var(--secondary); margin-bottom: 1rem;">✓ Registration Successful!</h3>
+            <p style="font-size: 1rem; margin: 0.5rem 0;">Your unique Registration ID:</p>
+            <p style="font-size: 1.4rem; font-weight: bold; color: var(--accent); margin: 1rem 0; font-family: monospace;">
+              ${regId}
+            </p>
+            <p style="font-size: 0.9rem; color: var(--muted); margin: 1rem 0;">
+              A confirmation email has been sent to <strong>${email}</strong>
+            </p>
+            <p style="font-size: 0.85rem; color: var(--muted);">
+              Please keep your Registration ID for future reference
+            </p>
+          </div>
+        `;
+        
+        document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+      } catch (error) {
+        console.error('Error sending email:', error);
+        
+        // Store registration locally even if email fails
+        const registration = {
+          name, email, mobile, address, center, experience,
+          regId,
+          date: new Date().toISOString(),
+          emailSent: false
+        };
+        localStorage.setItem('yogaReg_' + regId, JSON.stringify(registration));
+        
+        // Show success message with warning
+        document.getElementById('yogaForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('successMessage').innerHTML = `
+          <div style="text-align: center; padding: 2rem;">
+            <h3 style="color: var(--secondary); margin-bottom: 1rem;">✓ Registration Successful!</h3>
+            <p style="font-size: 1rem; margin: 0.5rem 0;">Your unique Registration ID:</p>
+            <p style="font-size: 1.4rem; font-weight: bold; color: var(--accent); margin: 1rem 0; font-family: monospace;">
+              ${regId}
+            </p>
+            <p style="font-size: 0.9rem; color: var(--secondary); margin: 1rem 0;">
+              ⚠️ Email service is not configured. Please contact us at info@ifwsbongloor.com
+            </p>
+          </div>
+        `;
+        
+        document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+      }
+      
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
     }
 
     // Smooth scrolling for navigation
