@@ -3,42 +3,379 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Yoga Day — Yoda Day</title>
+  <title>International Yoga Day 2026 — Participate & Get Certificate</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <h1>Yoga Day</h1>
-      <p class="subtitle">Breathe. Stretch. Connect.</p>
+      <div class="header-content">
+        <h1>International Yoga Day 2026</h1>
+        <p class="subtitle">Celebrate Health, Wellness & Harmony Through Yoga</p>
+      </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <h2>Celebrate International Yoga Day</h2>
-      <p>Free classes for all levels — join our online and local sessions.</p>
-      <img class="hero-image" src="assets/whatsapp.jpg" alt="Yoga Day" />
-      <a class="button" href="#schedule">See schedule</a>
-    </section>
-
-    <section id="schedule">
-      <h3>Schedule (sample)</h3>
+  <nav class="navbar">
+    <div class="container">
       <ul>
-        <li><strong>06:00</strong> — Sunrise Flow (30m)</li>
-        <li><strong>08:00</strong> — Gentle Hatha (45m)</li>
-        <li><strong>10:00</strong> — Community Meditation (20m)</li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#objectives">Objectives</a></li>
+        <li><a href="#benefits">Benefits</a></li>
+        <li><a href="#register">Register</a></li>
+        <li><a href="#faqs">FAQs</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Participate in India's Largest Yoga Day Program</h2>
+        <p>Join thousands of participants and receive a digital participation certificate. Open to everyone—students, professionals, homemakers, seniors, and all.</p>
+        <a class="button button-primary" href="#register">Register Now</a>
+      </div>
+      <img class="hero-image" src="assets/whatsapp.jpg" alt="International Yoga Day" />
     </section>
 
-    <section id="signup">
-      <h3>Sign up</h3>
-      <p>Email to register: <a href="mailto:hello@yogaday.org">hello@yogaday.org</a></p>
+    <!-- About Section -->
+    <section id="about" class="section">
+      <h2>About International Yoga Day</h2>
+      <p>International Yoga Day is celebrated every year on 21st June across the world to promote the importance of yoga for physical fitness, mental peace, and overall well-being. Yoga is an ancient practice that helps improve flexibility, concentration, breathing control, and stress management.</p>
+      <p>The Government of India and various international organizations actively promote yoga awareness programs to encourage healthier lifestyles. This participation program is designed to inspire individuals to adopt yoga as part of their daily routine.</p>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="section">
+      <h2>Program Objectives</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>🎯 Awareness</h3>
+          <p>Promote awareness about yoga and healthy living practices for all.</p>
+        </div>
+        <div class="card">
+          <h3>🧘 Practice</h3>
+          <p>Encourage people to practice yoga regularly for better health.</p>
+        </div>
+        <div class="card">
+          <h3>📚 Education</h3>
+          <p>Increase public understanding of yoga's scientific and traditional benefits.</p>
+        </div>
+        <div class="card">
+          <h3>😌 Wellness</h3>
+          <p>Support wellness and stress-free living through yoga practice.</p>
+        </div>
+        <div class="card">
+          <h3>✨ Lifestyle</h3>
+          <p>Inspire individuals to adopt positive lifestyle habits for longevity.</p>
+        </div>
+        <div class="card">
+          <h3>🏆 Recognition</h3>
+          <p>Provide recognition through a digital participation certificate.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who Can Participate -->
+    <section class="section">
+      <h2>Who Can Participate?</h2>
+      <p>This program is open to everyone! No prior yoga experience is required.</p>
+      <div class="grid-3">
+        <div class="participant-type">School Students</div>
+        <div class="participant-type">College Students</div>
+        <div class="participant-type">Teachers & Trainers</div>
+        <div class="participant-type">Working Professionals</div>
+        <div class="participant-type">Homemakers</div>
+        <div class="participant-type">Government Employees</div>
+        <div class="participant-type">Yoga Practitioners</div>
+        <div class="participant-type">Senior Citizens</div>
+        <div class="participant-type">General Public</div>
+      </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="register" class="section registration-section">
+      <h2>Registration Process</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>Fill the Form</h3>
+          <p>Complete the online registration form below with accurate details.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>Enter Details</h3>
+          <p>Provide your personal and contact information correctly.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>Study Center</h3>
+          <p>Mention your institute or study center name (optional).</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>Answer Questions</h3>
+          <p>Share your yoga awareness and participation details.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <h3>Submit</h3>
+          <p>Submit the form successfully to register.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <h3>Certificate</h3>
+          <p>Receive your digital participation certificate instantly.</p>
+        </div>
+      </div>
+
+      <div class="form-container">
+        <h3>Registration Form</h3>
+        <form id="yogaForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-group">
+            <label for="fullname">Full Name *</label>
+            <input type="text" id="fullname" name="fullname" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="mobile">Mobile Number *</label>
+            <input type="tel" id="mobile" name="mobile" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Complete Address *</label>
+            <textarea id="address" name="address" required rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="center">Study Center / Institute Name (Optional)</label>
+            <input type="text" id="center" name="center">
+          </div>
+          <div class="form-group">
+            <label for="experience">Yoga Experience *</label>
+            <select id="experience" name="experience" required>
+              <option value="">-- Select --</option>
+              <option value="beginner">Beginner (No experience)</option>
+              <option value="intermediate">Intermediate (1-2 years)</option>
+              <option value="advanced">Advanced (2+ years)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" name="agree" required>
+              I agree to the terms and conditions
+            </label>
+          </div>
+          <button type="submit" class="button button-primary">Register & Get Certificate</button>
+        </form>
+        <div id="successMessage" style="display:none;" class="success-message">
+          ✓ Registration successful! Your certificate number is: <strong id="certNumber"></strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="section">
+      <h2>Benefits of Yoga</h2>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Physical Benefits</h3>
+          <ul>
+            <li>Improved Flexibility</li>
+            <li>Better Body Balance</li>
+            <li>Increased Strength</li>
+            <li>Enhanced Stamina</li>
+            <li>Better Posture</li>
+          </ul>
+        </div>
+        <div class="benefit-card">
+          <h3>Mental Benefits</h3>
+          <ul>
+            <li>Reduced Stress & Anxiety</li>
+            <li>Improved Focus & Concentration</li>
+            <li>Better Memory</li>
+            <li>Emotional Stability</li>
+            <li>Mental Relaxation</li>
+          </ul>
+        </div>
+        <div class="benefit-card">
+          <h3>Lifestyle Benefits</h3>
+          <ul>
+            <li>Better Sleep Quality</li>
+            <li>Increased Energy Levels</li>
+            <li>Positive Thinking</li>
+            <li>Improved Discipline</li>
+            <li>Healthier Daily Routine</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificate Section -->
+    <section class="section">
+      <h2>Your Digital Participation Certificate</h2>
+      <div class="grid-2">
+        <div class="cert-feature">
+          <h3>Certificate Includes</h3>
+          <ul>
+            <li>Your Name</li>
+            <li>Unique Certificate Number</li>
+            <li>Program Name & Organization</li>
+            <li>Date of Participation</li>
+            <li>Digital Seal & Verification Code</li>
+            <li>PDF Download Option</li>
+          </ul>
+        </div>
+        <div class="cert-feature">
+          <h3>After Registration</h3>
+          <ul>
+            <li>Instant Certificate Generation</li>
+            <li>Online Certificate Access</li>
+            <li>Download as PDF</li>
+            <li>Email Notification</li>
+            <li>Unique Verification System</li>
+            <li>Anytime Online Access</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Participate Section -->
+    <section class="section">
+      <h2>Why Participate?</h2>
+      <p>Participating in the International Yoga Day Program helps you:</p>
+      <div class="grid-2">
+        <div class="reason">
+          <strong>Learn & Grow</strong> — Gain knowledge about yoga practices and benefits.
+        </div>
+        <div class="reason">
+          <strong>Improve Health</strong> — Promote your physical and mental fitness.
+        </div>
+        <div class="reason">
+          <strong>Reduce Stress</strong> — Practice stress and anxiety reduction techniques.
+        </div>
+        <div class="reason">
+          <strong>Build Community</strong> — Become part of a national wellness movement.
+        </div>
+        <div class="reason">
+          <strong>Get Recognized</strong> — Receive an official participation certificate.
+        </div>
+        <div class="reason">
+          <strong>No Cost</strong> — Free registration and certificate issuance.
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQs Section -->
+    <section id="faqs" class="section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-container">
+        <div class="faq-item">
+          <h3>What is the International Yoga Day Participation Program?</h3>
+          <p>It's an online awareness initiative designed to promote yoga and healthy living. Participants receive a digital participation certificate after registration.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Who can participate?</h3>
+          <p>Anyone can participate—students, teachers, professionals, homemakers, senior citizens, and general public. No age limit or prior experience required.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is prior yoga experience required?</h3>
+          <p>No, prior yoga experience is not mandatory. The program is open to everyone regardless of experience level.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How do I register?</h3>
+          <p>Fill out the online registration form on this page with your personal details and submit it. Your certificate will be generated instantly.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Will I receive a certificate?</h3>
+          <p>Yes, all eligible participants receive a digital participation certificate that can be viewed, downloaded, and verified online.</p>
+        </div>
+        <div class="faq-item">
+          <h3>What details are required for registration?</h3>
+          <p>You need to provide: Full Name, Email, Mobile Number, Complete Address, and optionally your Study Center/Institute name.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Is the certificate free?</h3>
+          <p>Yes! Registration and certificate issuance are completely free for all participants.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can I participate from any state in India?</h3>
+          <p>Yes, participants from all states and union territories of India can join the program.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Can institutions participate?</h3>
+          <p>Yes, schools, colleges, coaching centers, NGOs, and training institutes can encourage their students and members to participate.</p>
+        </div>
+        <div class="faq-item">
+          <h3>How is the certificate verified?</h3>
+          <p>Each certificate has a unique certificate number that can be verified using the official verification system on this website.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <h2>Get in Touch</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <h3>📞 Phone</h3>
+          <p>+91-9992333683<br>+91-9992333874</p>
+        </div>
+        <div class="contact-item">
+          <h3>✉️ Email</h3>
+          <p>info@yogaday.org<br>support@yogaday.org</p>
+        </div>
+        <div class="contact-item">
+          <h3>📍 Location</h3>
+          <p>Yoga Day Coordination Center<br>India</p>
+        </div>
+      </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">© 2026 Yoga Day • Host: GitHub Pages</div>
+    <div class="container">
+      <p>&copy; 2026 International Yoga Day. All rights reserved. | <a href="#disclaimer">Disclaimer</a></p>
+    </div>
   </footer>
+
+  <script>
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const name = document.getElementById('fullname').value;
+      const email = document.getElementById('email').value;
+      const certNumber = 'YD' + new Date().getTime();
+      
+      // Store in localStorage (simple persistence)
+      const registration = {
+        name, email,
+        certNumber,
+        date: new Date().toISOString()
+      };
+      localStorage.setItem('yogaReg_' + certNumber, JSON.stringify(registration));
+      
+      // Show success message
+      document.getElementById('yogaForm').style.display = 'none';
+      document.getElementById('certNumber').textContent = certNumber;
+      document.getElementById('successMessage').style.display = 'block';
+      
+      // Scroll to success message
+      document.getElementById('successMessage').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
