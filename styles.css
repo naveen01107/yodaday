@@ -1,0 +1,25 @@
+:root{
+  --bg:#f7fbf9;
+  --accent:#2b8a72;
+  --muted:#666;
+  --maxw:900px;
+}
+*{box-sizing:border-box}
+body{font-family:Inter,system-ui,Arial,sans-serif;background:var(--bg);color:#16321a;margin:0}
+.container{max-width:var(--maxw);margin:0 auto;padding:1rem}
+.site-header{background:linear-gradient(90deg, rgba(43,138,114,0.95), rgba(103,195,164,0.95));color:white;padding:1.25rem 0}
+.site-header h1{margin:0;font-size:1.6rem}
+.subtitle{opacity:0.95;margin-top:0.25rem}
+.hero{background:white;border-radius:10px;padding:1.25rem;margin:1rem 0;box-shadow:0 6px 18px rgba(10,20,10,0.06);text-align:center}
+.hero h2{margin-top:0}
+.hero p{color:var(--muted)}
+.button{display:inline-block;margin-top:0.75rem;padding:0.6rem 1rem;background:var(--accent);color:white;border-radius:6px;text-decoration:none}
+.hero-image{display:block;max-width:100%;height:auto;border-radius:8px;margin:1rem auto}
+#schedule ul{padding-left:1rem}
+.site-footer{padding:1rem 0;color:var(--muted);text-align:center;font-size:0.9rem}
+
+@media (min-width:900px){
+  .hero{display:flex;align-items:center;gap:1rem;text-align:left}
+  .hero-image{width:45%}
+  .hero > :not(.hero-image){width:55%}
+}
